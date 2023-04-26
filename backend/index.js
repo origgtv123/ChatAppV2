@@ -6,16 +6,13 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: true }));
 
-
 app.post("/authenticate", async (req, res) => {
-  const { username, secret } = req.body;
-
-  // Store a user-copy on Chat Engine!
-  // Docs at rest.chatengine.io
+  const { username } = req.body;
+  // Get or create user on Chat Engine!
   try {
-    const r = await axios.post(
+    const r = await axios.put(
       "https://api.chatengine.io/users/",
-      { username, secret },
+      { username: username, secret: username, first_name: username },
       { headers: { "Private-Key": "48eea850-8028-4f3f-abde-b214b772f9a0" } }
     );
     return res.status(r.status).json(r.data);
@@ -26,3 +23,4 @@ app.post("/authenticate", async (req, res) => {
 
 // vvv On port 3001!
 app.listen(3001);
+
