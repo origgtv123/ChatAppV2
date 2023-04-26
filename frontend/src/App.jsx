@@ -1,9 +1,10 @@
 import { useState } from "react";
+import AuthPage from './AuthPage.jsx';
+import ChatsPage from './ChatsPage.jsx';
+
+
 
 import "./App.css";
-
-import AuthPage from "./AuthPage";
-import ChatsPage from './ChatsPage.jsx';
 
 
 function App() {
