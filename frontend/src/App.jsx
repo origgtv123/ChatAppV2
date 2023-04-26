@@ -4,6 +4,8 @@ import "./App.css";
 
 import AuthPage from "./AuthPage";
 import ChatsPage from "./ChatsPage";
+import SignupPage from './SignUpPage';
+
 
 function App() {
   const [user, setUser] = useState(undefined);
